@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion 32
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 32
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        profile {
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation 'com.google.android.gms:play-services-ads:21.3.0'
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-runtime:2.5.1"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.5.1"
+
+    implementation 'com.google.firebase:firebase-config:'
+    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.1'
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+
+    implementation 'com.openmediation:om-android-sdk:2.6.5@aar'
+
+    // AdTiming-Adapter
+    implementation 'com.openmediation.adapters:adtiming:2.5.0'
+    // AdMob mediation Facebook
+    implementation 'com.google.ads.mediation:facebook:6.12.0.0'
+    implementation 'com.facebook.android:audience-network-sdk:6.12.0'
+
+// Facebook (Support S2S Bidding)
+    implementation 'com.openmediation.adapters:facebook:2.6.2@aar'
+    implementation 'com.facebook.android:audience-network-sdk:6.12.0'
+
+
+}
